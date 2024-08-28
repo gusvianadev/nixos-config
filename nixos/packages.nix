@@ -10,7 +10,9 @@
     gcc
     git
     gnumake
+    google-chrome
     home-manager
+    libreoffice-qt # Change this if not using kde
     nil
     nixfmt
     nodejs
@@ -25,6 +27,7 @@
     xclip
     yarn-berry
     zsh
+    zoom-us
   ];
 
   fonts.packages = with pkgs; [

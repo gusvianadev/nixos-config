@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, pkgs, ... }: {
   imports =
     [ ./hardware-configuration.nix ./packages.nix ./modules/bundle.nix ];
 
@@ -26,19 +26,13 @@
   nix.settings.experimental-features =
     [ "nix-command" "flakes" ]; # Enabling flakes
 
-  # Extra options from the original file
-
-  # Enable the KDE Plasma Desktop Environment.
+  # KDE
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.printing.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  environment.systemPackages = with pkgs; [ libreoffice-qt ];
 
+  # EXTRA
+  services.printing.enable = true;
   services.openssh.enable = true;
 
   system.stateVersion = "24.05"; # Don't change it bro
