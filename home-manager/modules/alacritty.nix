@@ -2,7 +2,11 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window = { startup_mode = "Maximized"; };
+      window = {
+        startup_mode = "Maximized";
+        opacity = 0.7;
+        blur = false;
+      };
       font = { size = 14; };
       colors = {
         primary = {
@@ -29,6 +33,7 @@
           cyan = "#00CCCC";
           white = "#FFFAFA";
         };
+        transparent_background_colors = true;
       };
     };
   };

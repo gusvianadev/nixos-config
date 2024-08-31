@@ -1,8 +1,5 @@
 { pkgs, ... }: {
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [ "python-2.7.18.8" "electron-25.9.0" ];
-  };
+  nixpkgs.config = { allowUnfree = true; };
 
   environment.systemPackages = with pkgs; [
     alacritty
@@ -13,9 +10,11 @@
     google-chrome
     home-manager
     libreoffice-qt # Change this if not using kde
+    mpvpaper
     nil
     nixfmt
     nodejs
+    obs-studio
     ripgrep
     rust-bin.stable.latest.default
     spotify
@@ -26,8 +25,12 @@
     vlc
     xclip
     yarn-berry
-    zsh
     zoom-us
+    zsh
+    # Haskell
+    haskellPackages.cabal-install
+    haskellPackages.ghc
+    haskellPackages.haskell-language-server
   ];
 
   fonts.packages = with pkgs; [

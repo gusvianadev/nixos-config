@@ -1,13 +1,12 @@
-{ inputs, pkgs, ... }: {
+{
   imports =
     [ ./hardware-configuration.nix ./packages.nix ./modules/bundle.nix ];
 
-  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+  # Enabling flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "necropolis"; # Define your hostname.
-
+  # Basic system configuration
   time.timeZone = "America/Argentina/Buenos_Aires"; # Set your time zone.
-
   i18n = {
     defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
     extraLocaleSettings = {
@@ -23,17 +22,15 @@
     };
   };
 
-  nix.settings.experimental-features =
-    [ "nix-command" "flakes" ]; # Enabling flakes
+  # Extra
+  services = {
+    printing.enable = true;
+    openssh.enable = true;
+  };
 
-  # KDE
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  environment.systemPackages = with pkgs; [ libreoffice-qt ];
+  # Leave this here to enable dinamically linked binaries
+  programs.nix-ld.enable = true;
 
-  # EXTRA
-  services.printing.enable = true;
-  services.openssh.enable = true;
-
+  ###### DANGER ZONE ######
   system.stateVersion = "24.05"; # Don't change it bro
 }
