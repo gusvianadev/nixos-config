@@ -2,6 +2,7 @@
   imports = [
     ./bootloader.nix
     ./env.nix
+    ./hyprland.nix
     ./kde.nix
     ./nm.nix
     ./overlays.nix

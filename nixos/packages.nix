@@ -27,6 +27,16 @@
     yarn-berry
     zoom-us
     zsh
+
+    # Window Manager
+    dmenu
+
+    # Wayland
+    xwayland
+    wl-clipboard
+    xdg-desktop-portal-hyprland
+    wofi
+
     # Haskell
     haskellPackages.cabal-install
     haskellPackages.ghc
