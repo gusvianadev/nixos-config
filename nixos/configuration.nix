@@ -27,9 +27,11 @@
     printing.enable = true;
     openssh.enable = true;
   };
+  security.pam.services.sddm.enableKwallet = true;
 
   # Leave this here to enable dinamically linked binaries
   programs.nix-ld.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   ###### DANGER ZONE ######
   system.stateVersion = "24.05"; # Don't change it bro

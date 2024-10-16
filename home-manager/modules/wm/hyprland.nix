@@ -4,15 +4,54 @@
     xwayland.enable = true;
 
     settings = {
+      # exec-once = [  ];
       "$mod" = "SUPER";
-      monitor = [
-        "HDMI-A-1, 1920x1080@75, 0x1920, 1"
-        "HDMI-A-2, 1920x1080@75, 0x0, 1"
-      ];
-      input = {
-        follow_mouse = 1;
 
+      monitor = [
+        "HDMI-A-2, 1920x1080@60, 0x0, 1"
+        "HDMI-A-1, 1920x1080@75, 1920x0, 1"
+      ];
+
+      input = {
+        follow_mouse = true;
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        repeat_delay = 300;
+      };
+
+      env = [
+        "GDK_BACKEND,wayland"
+        "SDL_VIDEODRIVER,wayland"
+        "CLUTTER_BACKEND,wayland"
+        "QT_QPA_PLATFORM,wayland"
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+      ];
+
+      general = {
+        border_size = 1;
+        gaps_in = 3;
+        gaps_out = 3;
+        layout = "master";
+        "col.active_border" = "$red";
+        "col.inactive_border" = "$blue";
+        resize_on_border = true;
+      };
+
+      master = {
+        mfact = 0.5;
+        new_status = "master";
+      };
+      decoration = {
+        rounding = 10;
+        drop_shadow = false;
+        blur.enabled = false;
+      };
+
+      gestures = { workspace_swipe = true; };
+
+      misc = {
+        # font_family = "Hack";
       };
 
       bind = [

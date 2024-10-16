@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     discord
-    gcc
+    vesktop
     git
     gnumake
     google-chrome
@@ -13,20 +13,39 @@
     mpvpaper
     nil
     nixfmt
-    nodejs
+    nodejs_22
     obs-studio
-    ripgrep
     rust-bin.stable.latest.default
     spotify
     starship
     stylua
-    unrar
-    unzip
     vlc
-    xclip
     yarn-berry
     zoom-us
     zsh
+
+    # Work
+    slack
+    openvpn
+
+    # Tools
+    kdePackages.kcalc
+    obsidian
+
+    # Terminal tools
+    ripgrep
+    unrar
+    unzip
+    xclip
+    bat
+    htop
+
+    # C Development
+    clang
+    clang-tools
+    cmake
+    gdb
+    valgrind
 
     # Window Manager
     dmenu
@@ -36,11 +55,7 @@
     wl-clipboard
     xdg-desktop-portal-hyprland
     wofi
-
-    # Haskell
-    haskellPackages.cabal-install
-    haskellPackages.ghc
-    haskellPackages.haskell-language-server
+    kdePackages.kwallet
   ];
 
   fonts.packages = with pkgs; [
