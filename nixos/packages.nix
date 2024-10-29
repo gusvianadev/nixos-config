@@ -27,6 +27,7 @@
     # Work
     slack
     openvpn
+    figma-linux
 
     # Tools
     kdePackages.kcalc
