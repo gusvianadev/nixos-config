@@ -3,8 +3,8 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
+    bun
     discord
-    vesktop
     git
     gnumake
     google-chrome
@@ -15,10 +15,10 @@
     nixfmt
     nodejs_22
     obs-studio
-    rust-bin.stable.latest.default
     spotify
     starship
     stylua
+    vesktop
     vlc
     yarn-berry
     zoom-us
@@ -57,13 +57,16 @@
     xdg-desktop-portal-hyprland
     wofi
     kdePackages.kwallet
+
+    # Rust
+    rust-bin.stable.latest.default
   ];
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     font-awesome # installed for waybar icons
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+    nerd-fonts.hack
   ];
 }
