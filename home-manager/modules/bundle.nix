@@ -7,5 +7,6 @@
     ./nvim.nix
     ./obs.nix
     ./wm/hyprland.nix
+    ./tmux.nix
   ];
 }

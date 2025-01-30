@@ -20,6 +20,8 @@
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
       hms = "home-manager switch --flake ${flakeDir}";
       ll = "ls -l";
+      lh = "ls -lh";
+      cls = "clear";
     };
 
     history.size = 10000;
