@@ -3,10 +3,11 @@
     ./alacritty.nix
     ./cursor.nix
     ./direnv.nix
+    ./ghostty.nix
     ./git.nix
     ./nvim.nix
     ./obs.nix
-    ./wm/hyprland.nix
     ./tmux.nix
+    ./wm/hyprland.nix
   ];
 }

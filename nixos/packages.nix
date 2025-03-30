@@ -63,6 +63,11 @@
 
     # Rust
     rust-bin.stable.latest.default
+
+    # Networking
+    tcpdump
+
+    logisim-evolution
   ];
 
   fonts.packages = with pkgs; [

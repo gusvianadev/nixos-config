@@ -32,6 +32,15 @@
   # Leave this here to enable dinamically linked binaries
   programs.nix-ld.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  networking.firewall = {
+    enable = true;
+    allowedUDPPortRanges = [{
+      from = 5000;
+      to = 5010;
+    }];
+  };
+
+  hardware.opengl = { enable = true; };
 
   ###### DANGER ZONE ######
   system.stateVersion = "24.05"; # Don't change it bro
