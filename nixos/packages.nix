@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     bun
     discord
+    slack
     git
     gnumake
     google-chrome
@@ -31,6 +32,7 @@
     # Tools
     kdePackages.kcalc
     obsidian
+    xournalpp
 
     # Terminals
     alacritty
@@ -68,6 +70,7 @@
     tcpdump
 
     logisim-evolution
+    wacomtablet
   ];
 
   fonts.packages = with pkgs; [
