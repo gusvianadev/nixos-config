@@ -28,6 +28,7 @@
     slack
     openvpn
     figma-linux
+    vscode
 
     # Tools
     kdePackages.kcalc
@@ -62,6 +63,7 @@
     xdg-desktop-portal-hyprland
     wofi
     kdePackages.kwallet
+    kdePackages.wayland-protocols
 
     # Rust
     rust-bin.stable.latest.default
