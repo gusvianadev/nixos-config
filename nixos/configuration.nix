@@ -1,9 +1,15 @@
 {
-  imports =
-    [ ./hardware-configuration.nix ./packages.nix ./modules/bundle.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./packages.nix
+    ./modules/bundle.nix
+  ];
 
   # Enabling flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Basic system configuration
   time.timeZone = "America/Argentina/Buenos_Aires"; # Set your time zone.
@@ -27,20 +33,29 @@
     printing.enable = true;
     openssh.enable = true;
   };
-  security.pam.services.sddm.enableKwallet = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services = {
+    # sddm.enableKwallet = true;
+    gdm.enableGnomeKeyring = true;
+    gdm-password.enableGnomeKeyring = true;
+  };
 
   # Leave this here to enable dinamically linked binaries
   programs.nix-ld.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   networking.firewall = {
     enable = true;
-    allowedUDPPortRanges = [{
-      from = 5000;
-      to = 5010;
-    }];
+    allowedUDPPortRanges = [
+      {
+        from = 5000;
+        to = 5010;
+      }
+    ];
   };
 
-  hardware.opengl = { enable = true; };
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
 
   ###### DANGER ZONE ######
   system.stateVersion = "24.05"; # Don't change it bro
