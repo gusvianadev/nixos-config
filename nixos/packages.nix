@@ -9,6 +9,15 @@
     libsecret
     seahorse
 
+    # Utils
+    wev
+    grim
+    slurp
+    wl-clipboard
+
+    # Sound
+    playerctl
+
     bun
     discord
     slack
@@ -60,9 +69,6 @@
     cmake
     gdb
     valgrind
-
-    # Window Manager
-    dmenu
 
     # Wayland
     xwayland

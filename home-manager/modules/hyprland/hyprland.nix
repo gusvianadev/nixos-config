@@ -1,28 +1,33 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    # xwayland.enable = true;
 
     settings = {
-      # exec-once = [  ];
       "$mod" = "SUPER";
+      "$terminal" = "alacritty";
+      "$browser" = "google-chrome-stable";
+      "$menu" = "wofi --show drun";
 
-      env = [
-        # "GDK_BACKEND,wayland"
-        # "SDL_VIDEODRIVER,wayland"
-        # "CLUTTER_BACKEND,wayland"
-        # "QT_QPA_PLATFORM,wayland"
-        # "XDG_CURRENT_DESKTOP,Hyprland"
-        # "XDG_SESSION_TYPE,wayland"
-        # "XDG_SESSION_DESKTOP,Hyprland"
-        "XDG_RUNTIME_DIR,/run/user/${toString builtins.getEnv "UID"}"
+      exec-once = [
+        "waybar"
+        "mako"
       ];
+
+      monitor = [
+        "HDMI-A-2, highres, 0x0, 1"
+        "HDMI-A-1, preferred, 1920x0, 1"
+      ];
+
+      input = {
+        follow_mouse = 2;
+        repeat_delay = 300;
+      };
 
       bind = [
         # Window management
         "$mod, c, killactive,"
 
-        # Move focus with mod + arrow keys
+        # Moving focus
         "$mod, left,  movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up,    movefocus, u"
@@ -34,7 +39,7 @@
         "$mod SHIFT, up,    swapwindow, u"
         "$mod SHIFT, down,  swapwindow, d"
 
-        # Window resizing                     X  Y
+        # Window resizing
         "$mod CTRL, left,  resizeactive, -60 0"
         "$mod CTRL, right, resizeactive,  60 0"
         "$mod CTRL, up,    resizeactive,  0 -60"
@@ -45,17 +50,18 @@
         "$mod, mouse_up, workspace, e-1"
 
         # Volume and Media Control
-        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +2%"
-        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -2%"
-        ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-        ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+        # Screenshots
+        ",Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
         # Apps
-        "$mod, Return, exec, alacritty"
-        "$mod, D, exec, wofi --show drun"
-        "$mod, B, exec, google-chrome-stable"
-        "$mod SHIFT, Q, exec, hyprctl dispatch exit"
-        "$mod, P, exec, dmenu_run"
+        "$mod, Return, exec, $terminal"
+        "$mod, P, exec, $menu"
+        "$mod, B, exec, $browser"
       ]
       ++ (
         # workspaces
