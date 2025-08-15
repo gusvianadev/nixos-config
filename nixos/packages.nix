@@ -11,9 +11,6 @@
 
     # Utils
     wev
-    grim
-    slurp
-    wl-clipboard
 
     # Sound
     playerctl
@@ -77,6 +74,11 @@
     wofi
     kdePackages.kwallet
     kdePackages.wayland-protocols
+
+    # Hyprland
+    grim
+    slurp
+    wl-clipboard
 
     # Rust
     rust-bin.stable.latest.default

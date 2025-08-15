@@ -1,9 +1,12 @@
+{ pkgs, ... }:
 {
-  imports = [ ./zsh.nix ./starship.nix ./modules/bundle.nix ];
+  imports = [ ./modules ];
 
   home = {
     username = "necropheus";
     homeDirectory = "/home/necropheus";
     stateVersion = "25.05";
+
+    pointerCursor = import ./pointer-cursor.nix { inherit pkgs; };
   };
 }
