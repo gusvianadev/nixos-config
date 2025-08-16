@@ -15,15 +15,20 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
-    let system = "x86_64-linux";
-    in {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           pkgs-stable = import nixpkgs-stable {
@@ -36,20 +41,21 @@
         modules = [ ./nixos/configuration.nix ];
       };
 
-      homeConfigurations.necropheus =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            {
-              programs.neovim = {
-                enable = true;
-                defaultEditor = true;
-                package =
-                  inputs.neovim-nightly-overlay.packages.${system}.default;
-              };
-            }
-            ./home-manager/home.nix
-          ];
+      homeConfigurations.necropheus = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
         };
+        modules = [
+          {
+            programs.neovim = {
+              enable = true;
+              defaultEditor = true;
+              package = inputs.neovim-nightly-overlay.packages.${system}.default;
+            };
+          }
+          ./home-manager
+        ];
+      };
     };
 }

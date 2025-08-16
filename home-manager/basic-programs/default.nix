@@ -1,12 +1,14 @@
+{ pkgs, ... }:
 {
   imports = [
+    ./direnv.nix
     ./file-explorer
+    ./git.nix
     ./notification-service
     ./status-bar
+    ./terminal-emulator
     ./wallpaper-engine
     ./window-manager
-    ./terminal-emulator
-    ./git.nix
-    ./direnv.nix
   ];
+  home.packages = with pkgs; [ wacomtablet ];
 }
