@@ -3,6 +3,7 @@
     ./advanced.nix
     ./bootloader.nix
     ./display-manager.nix
+    ./keyring.nix
     ./locale.nix
     ./networking.nix
     ./nvidia.nix

@@ -7,15 +7,17 @@
   general = import ./general.nix;
   bind = import ./key-bindings.nix;
 
-  # TODO: Check if this is needed
   exec-once = [
     "waybar"
     "mako"
   ];
 
   monitor = [
-    "HDMI-A-2, highres, 0x0, 1"
-    "HDMI-A-1, preferred, 1920x0, 1"
+    # TV Sony, left, highest res
+    "desc:Sony SONY TV 0x01010101, 1920x1080@60, -1920x0, 1"
+
+    # Main Monitor TMN, in front, highest res
+    "desc:TMN MK24X7100 000000000000, 1920x1080@60, 0x0, 1"
   ];
 
   input = {

@@ -23,10 +23,12 @@
       nixpkgs,
       nixpkgs-stable,
       home-manager,
+      neovim-nightly-overlay,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
+      neovimNightly = neovim-nightly-overlay.packages.${system}.default;
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -46,16 +48,10 @@
           inherit system;
           config.allowUnfree = true;
         };
-        modules = [
-          {
-            programs.neovim = {
-              enable = true;
-              defaultEditor = true;
-              package = inputs.neovim-nightly-overlay.packages.${system}.default;
-            };
-          }
-          ./home-manager
-        ];
+
+        extraSpecialArgs = { inherit neovimNightly; };
+
+        modules = [ ./home-manager ];
       };
     };
 }

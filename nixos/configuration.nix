@@ -3,7 +3,7 @@
     ./env.nix
     ./hardware-configuration.nix
     ./packages
-    ./settings
+    ./configs
   ];
 
   nix.settings.experimental-features = [

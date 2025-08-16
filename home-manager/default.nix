@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./basic-programs ];
+  imports = [ ./programs ];
 
   home = {
     username = "necropheus";

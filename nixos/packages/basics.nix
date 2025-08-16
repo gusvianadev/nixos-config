@@ -1,7 +1,8 @@
 { pkgs }:
 with pkgs;
 [
-  alacritty
+  kitty
+  git
   ripgrep
   xclip
 ]
