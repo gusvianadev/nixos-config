@@ -7,8 +7,10 @@ in
     ./direnv.nix
     ./file-explorer
     ./git.nix
+    ./gtk
     ./notification-service
     ./status-bar
+    ./stylix
     ./terminal-emulator
     ./text-editor
     ./wallpaper-engine

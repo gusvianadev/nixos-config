@@ -1,5 +1,6 @@
 {
   imports = [
+    ./activation-scripts
     ./env.nix
     ./hardware-configuration.nix
     ./packages

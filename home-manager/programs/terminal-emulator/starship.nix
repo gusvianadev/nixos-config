@@ -1,5 +1,6 @@
 {
   enable = true;
+  enableZshIntegration = true;
   settings = {
     format = ''
       $username [](bold red) $directory [](bold purple)  

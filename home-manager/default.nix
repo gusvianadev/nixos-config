@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./programs ];
+  imports = [
+    ./activation-scripts
+    ./programs
+  ];
 
   home = {
     username = "necropheus";

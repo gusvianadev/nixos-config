@@ -3,10 +3,10 @@
 
   settings = {
     preload = [
-      "~/Pictures/wallpapers/Luffy Header.jpeg"
+      "~/Pictures/wallpapers/itachi.png"
     ];
     wallpaper = [
-      ",~/Pictures/wallpapers/Luffy Header.jpeg"
+      ",~/Pictures/wallpapers/itachi.png"
     ];
   };
 }

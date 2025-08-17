@@ -1,8 +1,14 @@
 {
   description = "Necronix - Necropheus NixOS configuration";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,6 +23,7 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
+
   outputs =
     {
       self,
@@ -24,6 +31,7 @@
       nixpkgs-stable,
       home-manager,
       neovim-nightly-overlay,
+      stylix,
       ...
     }@inputs:
     let
@@ -33,14 +41,33 @@
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
+          inherit inputs system neovimNightly;
           pkgs-stable = import nixpkgs-stable {
             inherit system;
             config.allowUnfree = true;
           };
-          inherit inputs system;
         };
+        modules = [
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          ./nixos/configuration.nix
+          (
+            { config, pkgs, ... }:
+            {
+              stylix.enable = true;
+              stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 
-        modules = [ ./nixos/configuration.nix ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit neovimNightly; };
+              home-manager.users.necropheus = import ./home-manager;
+
+              environment.systemPackages = [
+                home-manager.packages.${system}.home-manager
+              ];
+            }
+          )
+        ];
       };
 
       homeConfigurations.necropheus = home-manager.lib.homeManagerConfiguration {
@@ -48,10 +75,11 @@
           inherit system;
           config.allowUnfree = true;
         };
-
         extraSpecialArgs = { inherit neovimNightly; };
-
-        modules = [ ./home-manager ];
+        modules = [
+          stylix.homeModules.stylix
+          ./home-manager
+        ];
       };
     };
 }

@@ -23,5 +23,10 @@
   input = {
     follow_mouse = 2;
     repeat_delay = 300;
+
+    # TODO: Try to move this to home-manager
+    kb_layout = "us";
+    kb_variant = "altgr-intl";
+    kb_options = [ "lv3:ralt_switch" ]; # AltGr enabled
   };
 }

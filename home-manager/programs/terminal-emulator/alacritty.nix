@@ -1,8 +1,8 @@
+{ lib, ... }:
 {
   enable = true;
-  settings = {
+  settings = lib.mkDefault {
     window = {
-      startup_mode = "Maximized";
       opacity = 1;
       blur = false;
     };
