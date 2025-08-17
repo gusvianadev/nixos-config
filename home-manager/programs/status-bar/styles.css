@@ -1,7 +1,0 @@
-.modules-right > widget > * {
-  padding: 0 8px;
-}
-
-.modules-right > widget:not(:last-child) > * {
-  border-right: 1px solid;
-}

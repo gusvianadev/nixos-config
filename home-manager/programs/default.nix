@@ -8,9 +8,7 @@ in
     ./file-explorer
     ./git.nix
     ./gtk
-    ./notification-service
     ./panels
-    # ./status-bar
     ./stylix
     ./terminal-emulator
     ./text-editor
