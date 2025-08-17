@@ -2,7 +2,7 @@
 {
   stylix = {
     enable = true;
-    image = ../../wallpapers/futuristic-computer-interface-1.jpg;
+    image = ../../wallpapers/itachi-1.jpg;
     polarity = "dark";
   };
 }
