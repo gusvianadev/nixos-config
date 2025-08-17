@@ -9,11 +9,11 @@ in
     ./git.nix
     ./gtk
     ./notification-service
-    ./status-bar
+    ./panels
+    # ./status-bar
     ./stylix
     ./terminal-emulator
     ./text-editor
-    ./wallpaper-engine
     ./window-manager
   ];
 

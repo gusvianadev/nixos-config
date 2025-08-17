@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
-  programs.waybar = import ./waybar.nix;
+  programs.waybar = import ./waybar.nix { inherit lib; };
 }

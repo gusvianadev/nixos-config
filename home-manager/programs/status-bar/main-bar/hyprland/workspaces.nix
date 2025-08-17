@@ -31,7 +31,7 @@
   format-icons = {
     active = "";
     default = "";
-    empty = "";
+    empty = "·";
     urgent = "";
     special = "";
   };

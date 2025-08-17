@@ -7,10 +7,7 @@
   general = import ./general.nix;
   bind = import ./key-bindings.nix;
 
-  exec-once = [
-    "waybar"
-    "mako"
-  ];
+  exec-once = [ "hyprpanel" ];
 
   monitor = [
     # TV Sony, left, highest res
