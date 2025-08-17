@@ -1,6 +1,6 @@
 {
   "$mod" = "SUPER";
-  "$terminal" = "alacritty";
+  "$terminal" = "kitty";
   "$browser" = "google-chrome-stable";
   "$menu" = "wofi --show drun";
 

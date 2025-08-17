@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # TODO: tmux is getting deprecated in favor of kitty
   enable = true;
   shell = "${pkgs.zsh}/bin/zsh";
   terminal = "screen-256color";
@@ -22,11 +23,9 @@
     }
   ];
 
-  # Resto de la configuración que no está contemplada
-  # en las opciones nativas de Home Manager
   extraConfig = ''
     # Terminal colors
-    set-option -sa terminal-overrides ",alacritty*:Tc"
+    set-option -sa terminal-overrides ",kitty*:Tc"
 
     # Clipboard
     set -s set-clipboard external

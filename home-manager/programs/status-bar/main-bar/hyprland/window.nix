@@ -5,7 +5,7 @@
   format = "";
   rewrite = {
     "firefox|Chrom[eium]" = "";
-    "(kitty|Alacritty)" = "";
+    "kitty" = "";
     "code(-oss)?|VSCodium|code-url-handler" = "󰨞";
     "discord|Vesktop" = "";
     "Spotify" = "󰓇";
