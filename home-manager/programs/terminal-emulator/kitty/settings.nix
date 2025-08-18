@@ -5,7 +5,7 @@
   enabled_layouts = "tall, fat, horizontal, vertical";
 
   # Window
-  window_margin_width = 4;
+  window_margin_width = 2;
   window_border_width = 2;
 
   # Background

@@ -24,6 +24,7 @@ in
       vesktop
       vlc
       wacomtablet
+      gparted
     ]
     ++ work;
 }
