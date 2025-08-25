@@ -3,9 +3,12 @@
   programs.hyprpanel = import ./hyprpanel.nix { inherit config; };
 
   home.packages = with pkgs; [
-    ## Used for Tracking GPU Usage in your Dashboard (NVidia only)
     (pkgs.python3.withPackages (python-pkgs: [
+      ## Used for Tracking GPU Usage in your Dashboard (NVidia only)
       python-pkgs.gpustat
+
+      ## TODO: Move these to another file
+      python-pkgs.pip
     ]))
 
     ## To record screen through the dashboard record shortcut

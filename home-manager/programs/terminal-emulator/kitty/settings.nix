@@ -1,8 +1,13 @@
 {
   # General
-  cursor_shape = "block";
+  # TODO: Add a font with ligatures
   disable_ligatures = "never";
   enabled_layouts = "tall, fat, horizontal, vertical";
+  font_family = "FiraCode Nerd Font Mono";
+
+  # Cursor
+  cursor_shape = "block";
+  cursor_trail = 1;
 
   # Window
   window_margin_width = 2;

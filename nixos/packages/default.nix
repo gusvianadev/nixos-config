@@ -16,7 +16,7 @@ in
       git
       home-manager
       kitty
-      neovim
+      gnumake
       neovimNightly
       ripgrep
       xclip

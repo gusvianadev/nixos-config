@@ -1,4 +1,4 @@
-{ neovimNightly, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     defaultEditor = true;
@@ -7,8 +7,7 @@
     nil
     nixfmt
     stylua
-
-    # TODO: Remove this once my research is done
-    vscode
+    luajit
+    luajitPackages.luarocks
   ];
 }

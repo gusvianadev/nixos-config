@@ -8,6 +8,7 @@ in
     ./file-explorer
     ./git.nix
     ./gtk
+    ./obs-studio
     ./panels
     ./stylix
     ./terminal-emulator
@@ -18,13 +19,14 @@ in
   home.packages =
     with pkgs;
     [
+      gcc
       google-chrome
+      gparted
       obsidian
       spotify
       vesktop
       vlc
       wacomtablet
-      gparted
     ]
     ++ work;
 }

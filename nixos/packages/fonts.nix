@@ -6,4 +6,5 @@ with pkgs;
   noto-fonts-emoji
   font-awesome
   nerd-fonts.hack
+  nerd-fonts.fira-code
 ]
