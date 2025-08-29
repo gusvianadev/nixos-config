@@ -32,6 +32,7 @@
 
   envExtra = ''
     export PATH="$HOME/.mambaforge/bin:$PATH"
+    export PATH="$HOME/.opencode/bin:$PATH"
     export LD_LIBRARY_PATH=/run/opengl-driver/lib:$LD_LIBRARY_PATH
     export TAVILY_API_KEY="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"
   '';

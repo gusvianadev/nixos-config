@@ -22,7 +22,9 @@ in
       gcc
       google-chrome
       gparted
+      lsof
       obsidian
+      pulseaudio
       spotify
       vesktop
       vlc
