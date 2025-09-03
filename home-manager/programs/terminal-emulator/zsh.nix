@@ -3,7 +3,9 @@
   enable = true;
   enableCompletion = true;
   autosuggestion.enable = true;
-  syntaxHighlighting.enable = true;
+  syntaxHighlighting = {
+    enable = true;
+  };
 
   history = {
     append = true;
@@ -31,8 +33,6 @@
   history.path = "${config.xdg.dataHome}/zsh/history";
 
   envExtra = ''
-    export PATH="$HOME/.mambaforge/bin:$PATH"
-    export PATH="$HOME/.opencode/bin:$PATH"
     export LD_LIBRARY_PATH=/run/opengl-driver/lib:$LD_LIBRARY_PATH
     export TAVILY_API_KEY="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"
   '';
@@ -51,6 +51,10 @@
     # Completion styling
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     zstyle ':completion:*' list-colors "$\{(s.:.)LS_COLORS}"
+
+    # PATH
+    export PATH="$HOME/.opencode/bin:$PATH"
+    export PATH="$HOME/.mambaforge/bin:$PATH"
 
     # direnv
     eval "$(direnv hook zsh)"
